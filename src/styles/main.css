@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* padding 包含在宽度内 */
+}
+:root {
+  --color-lighter: #e0aaff;
+  --color-light: #c77dff;
+  --color-normal: #9d4edd;
+  --color-dark: #7b2cbf;
+  --color-darker: #5a189a;
+  --color-yellow: #FFD700;
+  --color-yellow-dark: #cfb000;
+  --color-yellow-darker: #766400;
+  --color-gray:#f0eff2;
+  --color-gray-dark:#dcdfe6;
+  --color-gray-darker:#ababab;
+}
