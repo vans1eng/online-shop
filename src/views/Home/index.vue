@@ -7,24 +7,18 @@
         <ColRight />
     </div>
     <GoodsContainer />
+    <ScrollToTopButton />
   </div>
 </template>
 
-<script>
+<script setup>
 import ColRight from './components/ColRight.vue'
 import CategoryBox from '@/views/Home/components/CategoryBox.vue'
 import HomeCarousel from '@/views/Home/components/HomeCarousel.vue'
 import CHeader from "@/components/CHeader.vue"
 import GoodsContainer from "./components/GoodsContainer.vue"
-export default {
-  components:{
-    GoodsContainer,
-    CHeader,
-    HomeCarousel,
-    CategoryBox,
-    ColRight
-}
-}
+import ScrollToTopButton from '@/components/ScrollToTopButton.vue'
+
 </script>
 
 <style scoped>
@@ -37,7 +31,7 @@ export default {
 }
 
 .line-container{
-  padding-inline: 40px;
+  padding-inline: 100px;
   width: 100%;
     margin: 0 auto; /* 在大屏下居中 */
     height: 400px;

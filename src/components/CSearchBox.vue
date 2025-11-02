@@ -39,7 +39,7 @@ const handleCommand  = (command) => {
   align-items: center;
   padding-left: 10px;
 }
-
+  
 .search-title {
   display: flex;
   height: 40px;

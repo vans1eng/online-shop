@@ -11,3 +11,9 @@ export function findUserByUsername(username){
     url: `users/${username}`
   })
 }
+
+export function getGoodsLimitAndOffset(limit, offset){
+  return httpInstance({
+    url: `goods/page?limit=${limit}&offset=${offset}`
+  })
+}
