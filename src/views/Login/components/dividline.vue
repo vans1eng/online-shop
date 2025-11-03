@@ -1,20 +1,19 @@
 <template>
-  <div class="divid-line" :style="{height:`${height}px`}"></div>
+    <div class="divid-line" :style="{ height: `${height}px` }"></div>
 </template>
 
 <script setup>
 const { height } = defineProps({
-    height:{
+    height: {
         type: Number,
-        default:20
+        default: 20
     },
 });
 </script>
 
 <style>
-.divid-line{
+.divid-line {
     width: 1.5px;
     background-color: var(--color-gray);
 }
-
 </style>

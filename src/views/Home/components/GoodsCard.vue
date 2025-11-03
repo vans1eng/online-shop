@@ -2,42 +2,45 @@
     <div class="goods-card" @click="GoodsDetailHandler">
         <a class="goods-card-link">
             <div class="img-wrapper">
-                <img :src="goodsData._imgUrl" alt />
+                <img :src="props.goodsData._imgUrl" alt />
             </div>
             <div class="info-wrapper">
-                <div class="info-title">{{ goodsData._goodsInfo }}</div>
+                <div class="info-title">{{ props.goodsData._goodsInfo }}</div>
             </div>
             <div class="tag-wrapper"></div>
             <div class="price-wrapper">
-                <span class="price-unit">{{ goodsData._priceUnit }}</span>
-                <span class="price-value">{{ goodsData._priceValue }}</span>
-                <span class="month-sale">月售 {{ goodsData._monthSale }}</span>
+                <span class="price-unit">{{ props.goodsData._priceUnit }}</span>
+                <span class="price-value">{{ props.goodsData._priceValue }}</span>
+                <span class="month-sale">月售 {{ props.goodsData._monthSale }}</span>
             </div>
         </a>
     </div>
 </template>
 
-<script>
-export default {
-    props: {
-        goodsData: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-        GoodsDetailHandler(){
-            this.$router.push(`/goods/${this.goodsData._id}`)
-        }   
-    },
+<script setup>
+import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
+function GoodsDetailHandler() {
+    router.push(`/goods/${props.goodsData._id}`)
 }
+
+const router = useRouter()
+
+const props = defineProps({
+    goodsData: {
+        type: Object,
+        required: true
+    }
+})
 </script>
 
 <style scoped>
 .goods-card {
-    width: 100%; /* 让卡片填充网格单元格 */
+    width: 100%;
+    /* 让卡片填充网格单元格 */
     height: 380px;
 }
+
 .goods-card-link {
     height: 100%;
     width: 100%;
@@ -55,12 +58,16 @@ export default {
 }
 
 .img-wrapper {
-    width: calc(100% - 10px); /* 自适应宽度，留出边距 */
-    aspect-ratio: 1 / 1; /* 保持宽高比为 1:1，即高度等于宽度 */
-    margin: 5px auto; /* 居中 */
+    width: calc(100% - 10px);
+    /* 自适应宽度，留出边距 */
+    aspect-ratio: 1 / 1;
+    /* 保持宽高比为 1:1，即高度等于宽度 */
+    margin: 5px auto;
+    /* 居中 */
     border-radius: 5%;
     overflow: hidden;
 }
+
 .info-wrapper {
     width: 100%;
     overflow: hidden;
@@ -89,20 +96,20 @@ export default {
     font-size: 17px;
 }
 
-.price-value{
+.price-value {
     color: var(--color-normal);
     font-size: 19px;
     font-weight: 700;
     margin-left: 3px;
 }
 
-.img-wrapper img{
+.img-wrapper img {
     object-fit: cover;
     width: 100%;
 }
-.month-sale{
-    margin-left: 10px;
-    
-}
 
+.month-sale {
+    margin-left: 10px;
+
+}
 </style>

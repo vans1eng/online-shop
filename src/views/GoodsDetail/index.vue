@@ -1,31 +1,32 @@
 <template>
-    <CHeader />
-  <div class="goods-detail">
-    <h3>Goods Detail Page</h3>
-    <p>Goods ID: {{ id }}</p>
+  <CHeader />
+  <div class="goods-detail-container">
+    <LeftInfoBox />
+    <RightBuyBox />
   </div>
 </template>
 
-<script>
+<script setup>
+import { defineProps, onMounted } from 'vue';
 import CHeader from "@/components/CHeader.vue"
-export default {
-    components:{
-        CHeader
-    },
-  name: 'GoodsDetail',
-  props: {
-    id: {
-      type: String,
-      required: true
-    },
-    goodsData:{
-        type:Object,
-        required:true
-    }
+import LeftInfoBox from "./components/LeftInfoBox.vue"
+import RightBuyBox from "./components/RightBuyBox.vue"
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
   }
-}
+})
+
 </script>
 
 <style>
-
+.goods-detail-container {
+  min-width: 1040px;
+  padding-top: 60px;
+  padding-inline: 80px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
 </style>
