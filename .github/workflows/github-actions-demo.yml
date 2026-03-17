@@ -1,0 +1,18 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} 正在测试 GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 这个任务是由 ${{ github.event_name }} 事件自动触发的。"
+      - run: echo "🐧 这个任务现在正在由 GitHub 托管的 ${{ runner.os }} 服务器上运行！"
+      - run: echo "🔎 您的分支名称是 ${{ github.ref }}，您的仓库是 ${{ github.repository }}。"
+      - name: 检出仓库代码
+        uses: actions/checkout@v5
+      - run: echo "💡 ${{ github.repository }} 仓库已被克隆到运行器。"
+      - run: echo "🖥️ 工作流现在已准备好在运行器上测试您的代码。"
+      - name: 列出仓库中的文件
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 此任务的当前状态是 ${{ job.status }}。"
